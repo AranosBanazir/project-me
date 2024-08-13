@@ -7,10 +7,9 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { Outlet } from 'react-router-dom';
-
 import { RewardCartProvider } from './utils/RewardCartContext';
 import Header from './components/Header';
-import Navbar from './components/Navbar';
+import SideMenu from './components/Navbar';
 import Footer from './components/Footer';
 
 const httpLink = createHttpLink({
@@ -35,16 +34,17 @@ const client = new ApolloClient({
 });
 
 function App() {
+
   return (
     <ApolloProvider client={client}>
       <RewardCartProvider>
-      <div className="flex-column justify-flex-start min-100-vh">
-        <Header />
-        <Navbar />
-        <div className="container">
-          <Outlet />
+        {/* Full window container */}
+      <div className="flex-row justify-flex-start min-100-vh">
+        <div>
+          <div className='flex-row'>
+            <SideMenu/>
+          </div>
         </div>
-        <Footer />
       </div>
       </ RewardCartProvider>
     </ApolloProvider>
