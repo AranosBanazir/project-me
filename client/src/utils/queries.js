@@ -21,13 +21,10 @@ export const QUERY_SINGLE_USER = gql`
 export const ME = gql`
   query me {
     me {
-      _id
-      username
+      __typename
     }
   }
 `;
-
-/*Taken from in class example. Might need adjustments ~Nick*/
 
 
 export const GET_TASKS = gql`

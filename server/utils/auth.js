@@ -1,6 +1,5 @@
 const { GraphQLError } = require('graphql');
 const jwt = require('jsonwebtoken');
-
 const secret = 'mysecretssshhhhhhh';
 const expiration = '2h';
 
@@ -10,7 +9,7 @@ module.exports = {
       code: 'UNAUTHENTICATED',
     },
   }),
-  authMiddleware: function ({ req }) {
+  authMiddleware: async function ({ req }) {
     // allows token to be sent via req.body, req.query, or headers
     let token = req.body.token || req.query.token || req.headers.authorization;
 

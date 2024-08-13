@@ -20,7 +20,6 @@ const parentSchema = new Schema({
 
 
 
-
 const Parent = BaseUser.discriminator('Parent', parentSchema )
 
 

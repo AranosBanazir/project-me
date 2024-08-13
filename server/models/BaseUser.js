@@ -30,6 +30,11 @@ baseUserSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
 
+baseUserSchema.methods.type = async function () {
+  return this.__t
+};
+
+
 const BaseUser = model('User', baseUserSchema);
 
 module.exports = BaseUser;

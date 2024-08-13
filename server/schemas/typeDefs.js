@@ -38,6 +38,7 @@ type Parent {
 
 type User {
     _id: ID
+    rewards: [Reward]
     username: String!
     password: String!
   }
@@ -60,6 +61,8 @@ type User {
     user: User
   }
 
+  union UserTypes = User | Parent | Child
+
   type Query {
     users: [User]!
     user(userId: ID!): User
@@ -67,7 +70,7 @@ type User {
     getRewards: [Reward]
     getInventory(userId: ID!): [Reward]
     # Because we have the context functionality in place to check a JWT and decode its data, we can use a query that will always find and return the logged in user's data
-    me: User
+    me: UserTypes
   }
 
   type Mutation {
